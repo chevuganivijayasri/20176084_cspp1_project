@@ -1,59 +1,55 @@
-'''Bag of Words'''
-import os
-import sys
 import math
-e = os.getcwd()
-alltext = [f for f in os.listdir(e) if f.endswith('.txt')]
-print(alltext)
+file,file1=open("f1.txt","r"),open("f1.txt","r")
+f1,f2=file.read().lower(),file1.read().lower()
 def list1(z, n):
     print(str(z) +" and "+ str(n))
     def list2():
         cha = ['_']
-        for i in range(97, 123):
-            cha.append(chr(i))
-        for j in range(48, 58):
-            cha.append(chr(j))
-        h = ''.join(cha)
-        return h
+        for l in range(97, 123):
+            cha.append(chr(l))
+        for m in range(48, 58):
+            cha.append(chr(m))
+        p = ''.join(cha)
+        return p
     def check(inp):
-        y = list2()
-        g = []
+        v = list2()
+        o = []
         for c in inp:
             a = []
             i = 0
             for char in c:
-                if char in y:
+                if char in v:
                     a.append(char)
             d = ''.join(a)
-            g.append(d)
-        return g
-    def file(y):
+            o.append(d)
+        return o
+    def file(v):
         data = []
         try:
-            fh = open(y, 'r')
+            fo = open(v, 'r')
         except IOError:
-            print('There is no file with that name to open')
+            print("No text file found")
             return 0
         else:
-            for new1 in fh:
-                if new1!='\n':
-                    new = new1.lower()
-                    ad = new[:-1].split(' ')
-                    le = len(ad)
+            for newlist in fo:
+                if newlist!='\n':
+                    newlist1 = newlist.lower()
+                    nl = newlist1[:-1].split(' ')
+                    le = len(nl)
                     for i in range(le):
-                        x = ad[i]
-                        data.append(x)
-            da = check(data)
-            return da
+                        ke = nl[i]
+                        data.append(ke)
+            nl = check(data)
+            return nl
             fh.close()
-    path1 = z
-    x = file(path1) #print(x)
-    path2 = n
-    y = file(path2) #print(y)
-    a = set(x)
-    b = set(y)
-    c = a | b #print(c)
-    d = list(c)
+    patha = z
+    x = file(patha)
+    pathb = n
+    y = file(pathb)
+    ao = set(x)
+    bo = set(y)
+    co = ao | bo 
+    do = list(co)
     def di(x):
         ly = x[:]
         lh = len(ly)
@@ -65,40 +61,40 @@ def list1(z, n):
                 if ly[i] == ly[k]:
                     c = c+1
             e.append(c)
-        d = dict(zip(x,e))
-        e1 = list(d.keys())
-        f1 = list(d.values())
-        s = 0
-        for i in f1:
-            s = s + (i**2)
-        r = math.sqrt(s)
-        return d, e1, f1, r
-    w, s, t, r1 = di(x)
-    z, u, v, r2 = di(y) #print(r2) #print(r1)
+        li = dict(zip(x,e))
+        e1 = list(li.keys())
+        f1 = list(li.values())
+        wq = 0
+        for jh in f1:
+            wq = wq + (jh**2)
+        sq = math.sqrt(wq)
+        return li, e1, f1, sq
+    w, s, t, sq1 = di(x)
+    z, u, v, sq2 = di(y)
     q = []
-    for k in d:
+    for k in do:
         if k in w.keys():
             q.append(w[k])
         else:
-            q.append(0)     #print(l)
+            q.append(0)   
     l = []
-    for k in d:
+    for k in do:
         if k in z.keys():
             l.append(z[k])
         else:
-            l.append(0)     #print(l)
-    m = 0
-    for i in range(len(d)):
-        m = m + (q[i]*l[i])     #print(m)
-    cos = (m)/(r1*r2)
+            l.append(0)
+    x = 0
+    for j in range(len(do)):
+        x = x + (q[j]*l[j])
+    cos = (x)/(sq1*sq2)
     print(str(cos*100) + " % matching")
 la = len(alltext)
-for i in range(la):
-	j = 0
-	while j<la:
-		if j!=i:
-			list1(alltext[i], alltext[j])
-			j = j+1
+for g in range(la):
+	h = 0
+	while h<la:
+		if h!=g:
+			list1(alltext[g], alltext[h])
+			h = h+1
 		else:
-			j = j+1
+			h = h+1
 		print("\n")
