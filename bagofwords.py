@@ -1,13 +1,13 @@
 import math
-File1,File2 = open("i.txt","r"), open("j.txt","r")
-Read1,Read2=File1.read().lower(),File2.read().lower()
+File1,File2 = open("file1.txt","r"), open("file2.txt","r")
+Read1,Read2 = File1.read().lower(),File2.read().lower()
 def sets(p):
-	dictionary={}
+	dictionary = {}
 	for i in p:
 		if i not in dictionary:
-			dictionary[i]=1
+			dictionary[i] = 1
 		else:
-			dictionary[i]+=1
+			dictionary[i] += 1
 	return dictionary
 def squareroot(x,y):
 	s1 = 0
@@ -23,12 +23,12 @@ def dot(x,y):
 	sum=0
 	for i in x:
 		for j in y:
-			if i==j:
-				multiplication=x.get(i)*y.get(j)
-				sum=sum+multiplication
+			if i == j:
+				multiplication = x.get(i)*y.get(j)
+				sum = sum + multiplication
 	return sum
-l=(Read1.split(" "))
-m=(Read2.split(" "))
+l = (Read1.split(" "))
+m = (Read2.split(" "))
 x,y = sets(l),sets(m)
 f = squareroot(x,y)
 g = dot(x,y)
